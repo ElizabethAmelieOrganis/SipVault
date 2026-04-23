@@ -4,6 +4,13 @@ const routes = [
   {
     path: "/",
     component: () => import("../views/Index.vue"),
+    children: [
+      {
+        path: "",
+        name: "DashBoard",
+        component: () => import("../views/dashBoard/DashBoard.vue"),
+      },
+    ],
   },
 ];
 
