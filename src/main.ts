@@ -1,15 +1,20 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { initializeDatabase } from "./database";
+import { canUseDatabase, initializeDatabase } from "./database";
+import router from "./router";
 
 async function bootstrap() {
-  try {
-    await initializeDatabase();
-  } catch (error) {
-    console.error("Failed to initialize database", error);
+  if (canUseDatabase()) {
+    try {
+      await initializeDatabase();
+    } catch (error) {
+      console.error("Failed to initialize database", error);
+    }
+  } else {
+    console.info("Skipping database initialization outside the Tauri runtime.");
   }
 
-  createApp(App).mount("#app");
+  createApp(App).use(router).mount("#app");
 }
 
 void bootstrap();
