@@ -121,7 +121,7 @@ watch(
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background-color: var(--color-background);
+  background-color: var(--color-card);
   padding: 1% 1%;
 }
 .Index-Header {
@@ -133,7 +133,6 @@ watch(
   align-items: center;
   padding: 0 2%;
   justify-content: space-between;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 
   .Production-Info {
     display: flex;
