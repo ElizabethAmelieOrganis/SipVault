@@ -1,0 +1,28 @@
+{
+  "name": "SipVault",
+  "appid": "__UNI__SIPVAULT",
+  "description": "SipVault drinking water tracker for Android and H5.",
+  "versionName": "0.2.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "distribute": {
+      "android": {
+        "permissions": []
+      },
+      "orientation": ["portrait-primary"]
+    }
+  },
+  "h5": {
+    "title": "SipVault"
+  },
+  "vueVersion": "3"
+}

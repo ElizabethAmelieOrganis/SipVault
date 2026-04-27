@@ -1,39 +1,19 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { fileURLToPath, URL } from "node:url";
+import uni from "@dcloudio/vite-plugin-uni";
 
-// @ts-expect-error process is a nodejs global
-const host = process.env.TAURI_DEV_HOST;
+const rootDir = fileURLToPath(new URL(".", import.meta.url));
+const createUniPlugin =
+  typeof uni === "function"
+    ? uni
+    : (uni as unknown as { default: typeof uni }).default;
 
-// https://vite.dev/config/
-export default defineConfig(async () => ({
-  plugins: [vue()],
+export default defineConfig({
+  plugins: [createUniPlugin()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "@styles": fileURLToPath(new URL("./src/styles", import.meta.url)),
+      "@": path.resolve(rootDir, "src"),
     },
   },
-
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent Vite from obscuring rust errors
-  clearScreen: false,
-  // 2. tauri expects a fixed port, fail if that port is not available
-  server: {
-    port: 1420,
-    strictPort: true,
-    host: host || false,
-    hmr: host
-      ? {
-          protocol: "ws",
-          host,
-          port: 1421,
-        }
-      : undefined,
-    watch: {
-      // 3. tell Vite to ignore watching `src-tauri`
-      ignored: ["**/src-tauri/**"],
-    },
-  },
-}));
+});

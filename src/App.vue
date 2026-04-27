@@ -1,7 +1,17 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+export default {
+  onLaunch() {
+    console.info("SipVault launched");
+  },
+  onShow() {
+    console.info("SipVault visible");
+  },
+  onHide() {
+    console.info("SipVault hidden");
+  },
+};
+</script>
 
-<template>
-  <RouterView></RouterView>
-</template>
-
-<style scoped></style>
+<style>
+@import "./styles/common.css";
+</style>

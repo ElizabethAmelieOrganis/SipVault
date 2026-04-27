@@ -1,0 +1,58 @@
+{
+  "pages": [
+    {
+      "path": "pages/dashboard/index",
+      "style": {
+        "navigationBarTitleText": "SipVault",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/accounts/index",
+      "style": {
+        "navigationBarTitleText": "Water Sources",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/goal/index",
+      "style": {
+        "navigationBarTitleText": "Daily Goal"
+      }
+    },
+    {
+      "path": "pages/record/index",
+      "style": {
+        "navigationBarTitleText": "Add Record"
+      }
+    },
+    {
+      "path": "pages/account-form/index",
+      "style": {
+        "navigationBarTitleText": "Water Source"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "SipVault",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#9B9B9B",
+    "selectedColor": "#32332B",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/dashboard/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/accounts/index",
+        "text": "水源"
+      }
+    ]
+  }
+}
